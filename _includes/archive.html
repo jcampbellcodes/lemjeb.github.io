@@ -1,0 +1,63 @@
+<div class="archive-container">
+        <!-- <button id="page-expander{{post.chapter}}" data-toggle="collapse" data-target=".chapter{{post.chapter}}">Collapsible</button>
+
+        <div id="2" class="collapse">
+            butt
+            </div> -->
+
+            <style>
+            .column{
+                width: 50%;
+            }
+
+            </style>
+
+            <div class="row">
+                    <ul class="column" id="chapter-column" style="list-style-type:none; float:right; clear: both;">
+
+                    </ul>
+                    <div class="column" id="page-column" style="float:left; clear: both;">
+
+                    </div>
+            </div>
+    {% assign oldChapter = "1" %}
+    {% for post in site.posts %}
+    <!-- <center>
+        <div class="collapse chapter{{post.chapter}}"><a href="{{ post.url | site.baseurl }}#panel">.{{post.page}}</a></div>
+    </center> -->
+    <script>
+        pageExpander = document.getElementById("page-expander{{post.chapter}}");
+        if(pageExpander == undefined)
+        {
+            pageList = document.createElement('li');
+
+            pageExpander = document.createElement('button');
+            pageExpander.id = "page-expander{{post.chapter}}";
+            pageExpander.setAttribute("data-toggle", "collapse");
+            pageExpander.setAttribute("data-target", ".chapter{{post.chapter}}");
+            pageExpander.setAttribute("style", "background-color: black; border-color:black; float:right; clear: both;");
+            pageExpander.href = "#";
+            pageExpander.innerHTML = "Chapter {{ post.chapter }}";
+            pageExpander.onclick = function()
+            {
+                $('.collapse').collapse('hide');
+            };
+            pageList.appendChild(pageExpander);
+            document.getElementById("chapter-column").appendChild(pageList);
+        };
+        
+        pageCollapse = document.createElement("div");
+        pageCollapse.className = "collapse chapter{{post.chapter}}";
+        pageLink = document.createElement("a");
+        pageLink.innerHTML = "{{post.chapter}}.{{post.page}}";
+        pageLink.href = "{{ post.url | site.baseurl }}#panel";
+        pageLink.id = "page{{post.page}}";
+        pageCollapse.appendChild(pageLink);
+        document.getElementById("page-column").appendChild(pageCollapse);
+
+    </script>
+    {% endfor %}
+
+</div>
+
+    

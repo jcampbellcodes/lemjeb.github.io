@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="post">
+  <div id="panel"></div>
+  <div class="post-nav">
+    {% if page.next.url %}
+      <a class="nav-item" href="{{ page.next.url | prepend: site.baseurl }}#panel">&laquo; Prev</a>
+    {% endif %}
+    {% if page.previous.url %}
+      <a class="nav-item" href="{{ page.previous.url | prepend: site.baseurl }}#panel">Next &raquo;</a>
+    {% endif %}
+  </div>
+
+  <center>
+  <article class="post-content">
+    {{ content }}
+  </article>
+</center>
+
+</div>

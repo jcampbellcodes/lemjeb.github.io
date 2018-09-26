@@ -1,0 +1,26 @@
+# Site settings
+title: 
+email: genus_ovis@aol.com
+description: > # this means to ignore newlines until "baseurl:"
+  twigs
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://lemjeb.com" # the base hostname & protocol for your site
+twitter_username: lemjeb
+github_username:  lemjeb
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# This snippet below exists so all comic panels can be accessed by Liquid like so:
+
+#    {% assign twigs_panels = site.static_files | where: "twigs_panel", true %}
+#    {% for panel in twigs_panels %}
+#      {{ panel.path }}
+#    {% endfor %}
+
+defaults:
+  - scope:
+      path: "resources/twigs_panels"
+    values:
+      twigs_panel: true
